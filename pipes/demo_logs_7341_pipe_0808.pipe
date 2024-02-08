@@ -1,0 +1,7 @@
+NODE demo_logs_7341_pipe_0808_0
+SQL >
+    SELECT * FROM demo_logs_7341
+
+NODE demo_logs_7341_pipe_0808_1
+SQL >
+    SELECT * FROM demo_logs_7341_pipe_0808_0

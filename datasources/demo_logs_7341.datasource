@@ -1,0 +1,46 @@
+DESCRIPTION >
+    Sample log events based on our starter kit
+
+SCHEMA >
+    `acceptcharset` String `json:$.acceptcharset`,
+    `acceptencoding` String `json:$.acceptencoding`,
+    `acceptlanguage` String `json:$.acceptlanguage`,
+    `browsername` String `json:$.browsername`,
+    `browserversion` String `json:$.browserversion`,
+    `cachecontrol` String `json:$.cachecontrol`,
+    `city` String `json:$.city`,
+    `connection` String `json:$.connection`,
+    `contentlength` String `json:$.contentlength`,
+    `contenttype` String `json:$.contenttype`,
+    `country` String `json:$.country`,
+    `cpuarchitecture` String `json:$.cpuarchitecture`,
+    `devicemodel` String `json:$.devicemodel`,
+    `devicetype` String `json:$.devicetype`,
+    `devicevendor` String `json:$.devicevendor`,
+    `enginename` String `json:$.enginename`,
+    `engineversion` String `json:$.engineversion`,
+    `event_ts` DateTime64(3) `json:$.event_ts`,
+    `from` String `json:$.from`,
+    `headers` String `json:$.headers`,
+    `host` String `json:$.host`,
+    `ip_address` String `json:$.ip_address`,
+    `isbot` UInt8 `json:$.isbot`,
+    `latitude` String `json:$.latitude`,
+    `log_level` String `json:$.log_level`,
+    `log_message` String `json:$.log_message`,
+    `longitude` String `json:$.longitude`,
+    `method` String `json:$.method`,
+    `origin` String `json:$.origin`,
+    `osname` String `json:$.osname`,
+    `osversion` String `json:$.osversion`,
+    `protocol` String `json:$.protocol`,
+    `referer` String `json:$.referer`,
+    `region` String `json:$.region`,
+    `url` String `json:$.url`,
+    `useragent` String `json:$.useragent`,
+    `via` String `json:$.via`,
+    `xforwaredforip` String `json:$.xforwaredforip`
+
+ENGINE MergeTree
+ENGINE_PARTITION_KEY toYear(event_ts)
+ENGINE_SORTING_KEY event_ts, useragent, via, xforwaredforip
